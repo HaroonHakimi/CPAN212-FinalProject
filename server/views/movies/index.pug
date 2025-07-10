@@ -1,0 +1,14 @@
+extends layout.pug
+
+block content
+  h1 Movies
+  if movies && movies.length
+    each movie in movies
+      .movie
+        h2
+          a(href=`/movies/${movie._id}`) #{movie.name}
+        p Year: #{movie.year}
+        p Genres: #{movie.genres.join(', ')}
+        p Rating: #{movie.rating}
+  else
+    p No movies found.

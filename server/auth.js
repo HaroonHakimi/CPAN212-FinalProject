@@ -1,4 +1,4 @@
-import app from './express'
+const app = require('./express');
 
 app.get('/register', (req, res) => {
     // Render registration form

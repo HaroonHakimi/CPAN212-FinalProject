@@ -1,0 +1,16 @@
+extends layout.pug
+
+block content
+  h1 Register
+  if errors
+    ul.error
+      each error in errors
+        li #{error.msg}
+  form(method='POST', action='/register')
+    .form-group
+      label(for='username') Username
+      input(type='text', name='username', id='username', value=formData ? formData.username : '')
+    .form-group
+      label(for='password') Password
+      input(type='password', name='password', id='password')
+    button(type='submit') Register

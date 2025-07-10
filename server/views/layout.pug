@@ -1,0 +1,29 @@
+doctype html
+html(lang='en')
+  head
+    title Movie App
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    style.
+      body { font-family: Arial, sans-serif; margin: 0; padding: 20px; }
+      .container { max-width: 800px; margin: 0 auto; }
+      .error { color: red; }
+      .nav { margin-bottom: 20px; }
+      .nav a { margin-right: 10px; }
+      .form-group { margin-bottom: 15px; }
+      label { display: block; margin-bottom: 5px; }
+      input, textarea, select { width: 100%; padding: 8px; }
+      button { padding: 10px 20px; background: #007bff; color: white; border: none; cursor: pointer; }
+      button:hover { background: #0056b3; }
+      .movie { border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; }
+  body
+    .nav
+      a(href='/movies') Movies
+      if user
+        a(href='/movies/add') Add Movie
+        a(href='/logout') Logout
+      else
+        a(href='/register') Register
+        a(href='/login') Login
+    .container
+      block content

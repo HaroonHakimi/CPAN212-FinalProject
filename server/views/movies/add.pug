@@ -1,0 +1,25 @@
+extends layout.pug
+
+block content
+  h1 Add Movie
+  if errors
+    ul.error
+      each error in errors
+        li #{error.msg}
+  form(method='POST', action='/movies/add')
+    .form-group
+      label(for='name') Name
+      input(type='text', name='name', id='name', value=formData ? formData.name : '')
+    .form-group
+      label(for='description') Description
+      textarea(name='description', id='description') #{formData ? formData.description : ''}
+    .form-group
+      label(for='year') Year
+      input(type='number', name='year', id='year', value=formData ? formData.year : '')
+    .form-group
+      label(for='genres') Genres (comma-separated)
+      input(type='text', name='genres', id='genres', value=formData ? formData.genres : '')
+    .form-group
+      label(for='rating') Rating (1-10)
+      input(type='number', name='rating', id='rating', min='1', max='10', value=formData ? formData.rating : '')
+    button(type='submit') Add Movie
